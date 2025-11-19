@@ -1,5 +1,7 @@
 package org.example;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
@@ -11,8 +13,11 @@ public class Login {
 
   @BeforeEach
   public void setUp() {
-    System.setProperty("webdriver.chrome.driver", "/home/et/Stiahnuté/SkillmeaZakladyProgramovania/SkillmeaSelenium/src/main/resources/chromedriver");
-    driver = new ChromeDriver();
+     //Toto plati len pre kalsicke pridanie ChromeDriver
+    /*System.setProperty("webdriver.chrome.driver", "/home/et/Stiahnuté/SkillmeaZakladyProgramovania/SkillmeaSelenium/src/main/resources/chromedriver");
+    driver = new ChromeDriver();*/
+      WebDriverManager.chromedriver().setup();
+      driver = new ChromeDriver();
   }
 
   @Test
