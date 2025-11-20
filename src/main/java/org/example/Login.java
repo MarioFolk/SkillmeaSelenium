@@ -13,7 +13,7 @@ public class Login {
 
   @BeforeEach
   public void setUp() {
-     //Toto plati len pre kalsicke pridanie ChromeDriver
+      //Toto plati len pre kalsicke pridanie ChromeDriver
     /*System.setProperty("webdriver.chrome.driver", "/home/et/Stiahnuté/SkillmeaZakladyProgramovania/SkillmeaSelenium/src/main/resources/chromedriver");
     driver = new ChromeDriver();*/
       WebDriverManager.chromedriver().setup();
