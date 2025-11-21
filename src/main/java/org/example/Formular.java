@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Formular {
     private WebDriver driver;
@@ -30,5 +31,8 @@ public class Formular {
         driver.findElement(By.id("gender")).click();
         // //*[@id="practiceForm"]/div[3]/div/div/div[2]/input
         driver.findElement(By.xpath("//*[@id=\"practiceForm\"]/div[3]/div/div/div[2]/input")).click();
+
+        assertTrue(driver.findElement(By.xpath("//*[@id=\"practiceForm\"]/div[3]/div/div/div[2]/input")).isSelected());
+        assertFalse(driver.findElement(By.id("gender")).isSelected(),"Radiobutton je zaskrtnuty :(");
     }
 }
