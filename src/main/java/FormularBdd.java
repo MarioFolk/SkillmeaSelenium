@@ -5,6 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.example.FormularPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,11 +15,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FormularBdd {
     private WebDriver driver;
+    private FormularPage formularPage;
 
     @Before
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        formularPage = new FormularPage(driver);
     }
 
     @After
@@ -49,12 +52,12 @@ public class FormularBdd {
 
     @And("Uzivatel klikne na radiobutton female")
     public void uzivatelKlikneNaRadiobuttonFemale() {
-        driver.findElement(By.xpath("//*[@id=\"practiceForm\"]/div[3]/div/div/div[2]/input")).click();
+        formularPage.clickOnFemaleRadioButton();
     }
 
     @Then("Uzivatel vidi zaskrtnuty radiobutton female")
     public void uzivatelVidiZaskrtnutyRadiobuttonFemale() {
-        assertTrue(driver.findElement(By.xpath("//*[@id=\"practiceForm\"]/div[3]/div/div/div[2]/input")).isSelected());
+        assertTrue(formularPage.isFemaleRadioButtonChecked());
     }
 
     @And("Uzivatel vidi odskrtnuty radiobutton male")
